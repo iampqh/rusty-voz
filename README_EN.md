@@ -96,6 +96,25 @@ When creating an issue, please provide:
 - Detailed description of the problem
 - Screenshots or error logs (if applicable)
 
+## Roadmap
+
+### In Development
+- [ ] :construction: Advanced reply editor (emoji, image support)
+- [ ] :construction: Create new threads directly on mobile
+- [ ] :construction: Multi-quotes (reply to multiple posts at once)
+
+### Planned
+- [ ] :clipboard: User features (user info, ignore, direct messages)
+- [ ] :clipboard: Multi-account support
+- [ ] :moon: Enhanced dark mode
+- [ ] :bookmark: Thread browsing history
+- [ ] :bell: Push notifications for new replies
+- [ ] :magnifying_glass: Search threads and posts
+- [ ] :arrow_forward: Auto-play videos and GIFs
+- [ ] :wastebasket: Edit and delete own posts
+- [ ] :chart_with_upwards_trend: Personal activity statistics
+- [ ] :iphone: iOS version
+
 ## FAQ
 
 **Is Rusty Voz an official Voz.vn app?**
@@ -109,6 +128,10 @@ Yes, Rusty Voz is completely free.
 **Do I need a Voz.vn account to use the app?**
 
 You can view public posts without logging in, but you need an account to interact (post, comment, etc.).
+
+**Does the app store my username/password?**
+
+No. The app only securely stores login credentials through the operating system's secure storage to maintain your session. Your password is never stored in plain text and is never sent to any server other than Voz.vn.
 
 ## Disclaimer
 

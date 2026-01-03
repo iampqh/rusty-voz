@@ -96,6 +96,25 @@ Khi tạo issue, vui lòng cung cấp:
 - Mô tả chi tiết vấn đề
 - Ảnh chụp màn hình hoặc log lỗi (nếu có)
 
+## Roadmap
+
+### Đang phát triển
+- [ ] :construction: Advance reply editor (hỗ trợ emoji, hình ảnh)
+- [ ] :construction: Tạo thread mới ngay trên mobile
+- [ ] :construction: Multi-quotes (trả lời nhiều bài viết cùng lúc)
+
+### Kế hoạch
+- [ ] :clipboard: User features (thông tin user, ignore, tin nhắn trực tiếp)
+- [ ] :clipboard: Hỗ trợ nhiều tài khoản (multi-users)
+- [ ] :moon: Dark mode tối ưu
+- [ ] :bookmark: Quản lý lịch sử xem threads
+- [ ] :bell: Thông báo push cho các phản hồi mới
+- [ ] :magnifying_glass: Tìm kiếm threads và bài viết
+- [ ] :arrow_forward: Tự động tải video và GIF
+- [ ] :wastebasket: Xóa và chỉnh sửa bài viết đã đăng
+- [ ] :chart_with_upwards_trend: Thống kê hoạt động cá nhân
+- [ ] :iphone: Phiên bản iOS
+
 ## FAQ
 
 **Rusty Voz có phải ứng dụng chính thức của Voz.vn không?**
@@ -109,6 +128,10 @@ Có, Rusty Voz hoàn toàn miễn phí.
 **Tôi có cần tài khoản Voz.vn để sử dụng không?**
 
 Bạn có thể xem các bài viết công khai mà không cần đăng nhập, nhưng cần tài khoản để tương tác (đăng bài, bình luận, v.v.).
+
+**Ứng dụng có lưu username/password của tôi không?**
+
+Không. Ứng dụng chỉ lưu thông tin đăng nhập an toàn thông qua secure storage của hệ điều hành để duy trì phiên đăng nhập. Mật khẩu của bạn không bao giờ được lưu trữ dưới dạng plain text và không được gửi đến bất kỳ máy chủ nào ngoài Voz.vn.
 
 ## Lưu ý
 
