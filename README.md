@@ -53,13 +53,13 @@ Rusty Voz là một ứng dụng di động không chính thức được phát 
 
 ## Ảnh chụp màn hình
 
-| Splash | Categories | Thread List |
+| F33 | Categories | Threads |
 |--------|------------|-------------|
-| ![Splash](screenshot/splash.png) | ![Categories](screenshot/categories.png) | ![Threads](screenshot/threads.png) |
+| ![F33](screenshot/f33.jpg) | ![Categories](screenshot/categories.jpg) | ![Threads](screenshot/native_thread.jpg) |
 
-| Thread Detail | Reply Editor | Favorites |
+| Reply | React | Conversations |
 |---------------|--------------|-----------|
-| ![Detail](screenshot/thread_detail.png) | ![Editor](screenshot/reply_editor.png) | ![Favorites](screenshot/favorites.png) |
+| ![Reply](screenshot/reply.jpg) | ![React](screenshot/react.jpg) | ![Conversations](screenshot/conversations.jpg) |
 
 ## Tải về
 
