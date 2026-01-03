@@ -4,14 +4,13 @@
 
 <div align="center">
 
-![Rusty Voz Logo](https://via.placeholder.com/128?text=RV)
+![Rusty Voz Logo](screenshot/logo.png)
 
 **Ứng dụng di động không chính thức cho Voz.vn**
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.10+-02569B?logo=flutter)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.10+-0175C2?logo=dart)](https://dart.dev)
 [![Rust](https://img.shields.io/badge/Rust-1.92+-000000?logo=rust)](https://www.rust-lang.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 </div>
 
@@ -20,6 +19,8 @@
 Rusty Voz là một ứng dụng di động không chính thức được phát triển để mang lại trải nghiệm tốt nhất khi truy cập diễn đàn [Voz.vn](https://voz.vn) - một trong những cộng đồng trực tuyến lớn nhất Việt Nam.
 
 Ứng dụng kết hợp sức mạnh của **Flutter** cho giao diện người dùng mượt mà và **Rust** cho hiệu suất cao khi xử lý mạng và phân tích dữ liệu, mang lại trải nghiệm native như thật.
+
+Đọc thêm **devlog** của ứng dụng: https://blog.iamqh.io.vn/posts/rusty-voz-devlog
 
 ## Tính năng chính
 
@@ -52,9 +53,13 @@ Rusty Voz là một ứng dụng di động không chính thức được phát 
 
 ## Ảnh chụp màn hình
 
-| Home | Thread Detail | Settings |
-|------|---------------|----------|
-| ![Screenshot 1](https://via.placeholder.com/300x600?text=Home) | ![Screenshot 2](https://via.placeholder.com/300x600?text=Thread) | ![Screenshot 3](https://via.placeholder.com/300x600?text=Settings) |
+| Splash | Categories | Thread List |
+|--------|------------|-------------|
+| ![Splash](screenshot/splash.png) | ![Categories](screenshot/categories.png) | ![Threads](screenshot/threads.png) |
+
+| Thread Detail | Reply Editor | Favorites |
+|---------------|--------------|-----------|
+| ![Detail](screenshot/thread_detail.png) | ![Editor](screenshot/reply_editor.png) | ![Favorites](screenshot/favorites.png) |
 
 ## Tải về
 
@@ -99,26 +104,11 @@ Không, đây là ứng dụng không chính thức được phát triển bởi
 
 **Ứng dụng có miễn phí không?**
 
-Có, Rusty Voz hoàn toàn miễn phí và mã nguồn mở.
+Có, Rusty Voz hoàn toàn miễn phí.
 
 **Tôi có cần tài khoản Voz.vn để sử dụng không?**
 
 Bạn có thể xem các bài viết công khai mà không cần đăng nhập, nhưng cần tài khoản để tương tác (đăng bài, bình luận, v.v.).
-
-## Đóng góp
-
-Rusty Voz là dự án mã nguồn mở. Mọi đóng góp đều được chào đón!
-
-Nếu bạn muốn đóng góp, vui lòng:
-1. Fork repository
-2. Tạo branch mới cho tính năng của bạn
-3. Commit thay đổi của bạn
-4. Push lên branch
-5. Tạo Pull Request
-
-## Giấy phép
-
-Dự án này được cấp phép theo [MIT License](LICENSE).
 
 ## Lưu ý
 
@@ -135,7 +125,7 @@ Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ qua:
 
 <div align="center">
 
-Made with :heart: by the community
+Made with :heart: by iamqh
 
 **[⬆ Back to Top](#rusty-voz)**
 

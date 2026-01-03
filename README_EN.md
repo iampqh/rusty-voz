@@ -4,14 +4,13 @@
 
 <div align="center">
 
-![Rusty Voz Logo](https://via.placeholder.com/128?text=RV)
+![Rusty Voz Logo](screenshot/logo.png)
 
 **Unofficial mobile client for Voz.vn**
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.10+-02569B?logo=flutter)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.10+-0175C2?logo=dart)](https://dart.dev)
 [![Rust](https://img.shields.io/badge/Rust-1.92+-000000?logo=rust)](https://www.rust-lang.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 </div>
 
@@ -20,6 +19,8 @@
 Rusty Voz is an unofficial mobile application developed to provide the best experience when accessing [Voz.vn](https://voz.vn) - one of the largest online communities in Vietnam.
 
 The app combines the power of **Flutter** for smooth user interface and **Rust** for high-performance networking and data parsing, delivering a true native-like experience.
+
+Read my **devlog**: https://blog.iamqh.io.vn/posts/rusty-voz-devlog
 
 ## Key Features
 
@@ -52,9 +53,13 @@ The app combines the power of **Flutter** for smooth user interface and **Rust**
 
 ## Screenshots
 
-| Home | Thread Detail | Settings |
-|------|---------------|----------|
-| ![Screenshot 1](https://via.placeholder.com/300x600?text=Home) | ![Screenshot 2](https://via.placeholder.com/300x600?text=Thread) | ![Screenshot 3](https://via.placeholder.com/300x600?text=Settings) |
+| Splash | Categories | Thread List |
+|--------|------------|-------------|
+| ![Splash](screenshot/splash.png) | ![Categories](screenshot/categories.png) | ![Threads](screenshot/threads.png) |
+
+| Thread Detail | Reply Editor | Favorites |
+|---------------|--------------|-----------|
+| ![Detail](screenshot/thread_detail.png) | ![Editor](screenshot/reply_editor.png) | ![Favorites](screenshot/favorites.png) |
 
 ## Download
 
@@ -99,26 +104,11 @@ No, this is an unofficial app developed by the community.
 
 **Is the app free?**
 
-Yes, Rusty Voz is completely free and open-source.
+Yes, Rusty Voz is completely free.
 
 **Do I need a Voz.vn account to use the app?**
 
 You can view public posts without logging in, but you need an account to interact (post, comment, etc.).
-
-## Contributing
-
-Rusty Voz is an open-source project. All contributions are welcome!
-
-If you want to contribute, please:
-1. Fork the repository
-2. Create a new branch for your feature
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Disclaimer
 
@@ -135,7 +125,7 @@ If you have any questions, reach out via:
 
 <div align="center">
 
-Made with :heart: by the community
+Made with :heart: by iamqh
 
 **[⬆ Back to Top](#rusty-voz)**
 
