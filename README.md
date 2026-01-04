@@ -109,7 +109,7 @@ Khi tạo issue, vui lòng cung cấp:
 - [ ] :moon: Dark mode tối ưu
 - [ ] :bookmark: Quản lý lịch sử xem threads
 - [ ] :bell: Thông báo push cho các phản hồi mới
-- [ ] :magnifying_glass: Tìm kiếm threads và bài viết
+- [ ] :mag_right: Tìm kiếm threads và bài viết
 - [ ] :arrow_forward: Tự động tải video và GIF
 - [ ] :wastebasket: Xóa và chỉnh sửa bài viết đã đăng
 - [ ] :chart_with_upwards_trend: Thống kê hoạt động cá nhân
