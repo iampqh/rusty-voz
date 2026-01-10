@@ -42,7 +42,7 @@ Rusty Voz là một ứng dụng di động không chính thức được phát 
 
 ### Hiển thị nội dung phong phú
 - :art: Hỗ trợ HTML, code blocks, spoilers, tables
-- :frame_with_picture: Hiển thị ảnh và embedded content
+- :framed_picture: Hiển thị ảnh và embedded content
 - :wrench: Code syntax highlighting
 - :dark_sunglasses: Dark Mode bảo vệ mắt
 
@@ -99,17 +99,17 @@ Khi tạo issue, vui lòng cung cấp:
 ## Roadmap
 
 ### Đang phát triển
-- [ ] :construction: Advance reply editor (hỗ trợ emoji, hình ảnh)
+- [ ] :construction: Advance reply editor (hỗ trợ hình ảnh)
 - [ ] :construction: Tạo thread mới ngay trên mobile
 - [ ] :construction: Multi-quotes (trả lời nhiều bài viết cùng lúc)
 
 ### Kế hoạch
-- [ ] :clipboard: User features (thông tin user, ignore, tin nhắn trực tiếp)
-- [ ] :clipboard: Hỗ trợ nhiều tài khoản (multi-users)
-- [ ] :moon: Dark mode tối ưu
+- [x] :clipboard: User features (thông tin user, ignore, tin nhắn trực tiếp)
+- [x] :clipboard: Hỗ trợ nhiều tài khoản (multi-users)
+- [x] :moon: Dark mode tối ưu
 - [ ] :bookmark: Quản lý lịch sử xem threads
-- [ ] :bell: Thông báo push cho các phản hồi mới
-- [ ] :mag_right: Tìm kiếm threads và bài viết
+- [x] :bell: Thông báo push cho các phản hồi mới
+- [x] :mag_right: Tìm kiếm threads và bài viết
 - [ ] :arrow_forward: Tự động tải video và GIF
 - [ ] :wastebasket: Xóa và chỉnh sửa bài viết đã đăng
 - [ ] :chart_with_upwards_trend: Thống kê hoạt động cá nhân
