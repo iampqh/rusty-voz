@@ -65,7 +65,7 @@ Rusty Voz là một ứng dụng di động không chính thức được phát 
 
 ### Android
 
-Phiên bản mới nhất sẽ có sẵn tại phần [Releases](https://github.com/iampqh/rusty-voz/releases).
+Tải về từ [Google Play Store](https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz).
 
 ### iOS
 
@@ -78,7 +78,7 @@ Phiên bản mới nhất sẽ có sẵn tại phần [Releases](https://github.
 
 ## Cách sử dụng
 
-1. Tải và cài đặt ứng dụng từ phần [Releases](https://github.com/iampqh/rusty-voz/releases)
+1. Tải và cài đặt ứng dụng từ [Google Play Store](https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz)
 2. Mở ứng dụng và đăng nhập bằng tài khoản Voz.vn của bạn
 3. Nếu bạn có bật 2FA, ứng dụng sẽ yêu cầu mã xác thực
 4. Bắt đầu khám phá và tương tác với cộng đồng Voz.vn!

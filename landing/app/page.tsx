@@ -13,13 +13,15 @@ export default function Home() {
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a
-            href="https://github.com/iampqh/rusty-voz/releases"
-            style={{
-              background: '#000', color: '#fff', padding: '0.75rem 1.5rem',
-              borderRadius: '8px', textDecoration: 'none', fontWeight: 600
-            }}
+            href="https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz"
+            style={{ display: 'inline-block' }}
+            aria-label="Get it on Google Play"
           >
-            Tải về Android
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              alt="Get it on Google Play"
+              style={{ height: '54px', width: 'auto' }}
+            />
           </a>
           <a
             href="https://github.com/iampqh/rusty-voz"
@@ -80,13 +82,15 @@ export default function Home() {
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a
-            href="https://github.com/iampqh/rusty-voz/releases"
-            style={{
-              background: '#000', color: '#fff', padding: '1rem 2rem',
-              borderRadius: '8px', textDecoration: 'none', fontWeight: 600
-            }}
+            href="https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz"
+            style={{ display: 'inline-block' }}
+            aria-label="Get it on Google Play"
           >
-            Android - Tải về
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              alt="Get it on Google Play"
+              style={{ height: '80px', width: 'auto' }}
+            />
           </a>
           <span style={{
             background: '#f3f4f6', color: '#6b7280', padding: '1rem 2rem',

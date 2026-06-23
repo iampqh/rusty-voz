@@ -65,7 +65,7 @@ Read my **devlog**: https://blog.iamqh.io.vn/posts/rusty-voz-devlog
 
 ### Android
 
-The latest version will be available in the [Releases](https://github.com/iampqh/rusty-voz/releases) section.
+Download from the [Google Play Store](https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz).
 
 ### iOS
 
@@ -78,7 +78,7 @@ Coming soon...
 
 ## How to Use
 
-1. Download and install the app from [Releases](https://github.com/iampqh/rusty-voz/releases)
+1. Download and install the app from the [Google Play Store](https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz)
 2. Open the app and log in with your Voz.vn account
 3. If you have 2FA enabled, the app will prompt for verification code
 4. Start exploring and interacting with the Voz.vn community!
