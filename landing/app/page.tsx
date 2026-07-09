@@ -1,7 +1,23 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Home() {
+  const [copied, setCopied] = useState(false)
+  const sourceUrl = 'https://raw.githubusercontent.com/iampqh/rusty-voz/main/apps.json'
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(sourceUrl)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy: ', err)
+    }
+  }
+
   return (
     <main>
       {/* GitHub Corner Ribbon */}
@@ -249,6 +265,23 @@ export default function Home() {
               >
                 tải file .ipa trực tiếp
               </a>
+              {' • '}
+              <button
+                onClick={handleCopy}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: copied ? '#10b981' : '#6b7280',
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
+                  padding: 0,
+                  fontFamily: 'inherit',
+                  fontSize: 'inherit',
+                  fontWeight: copied ? 600 : 'normal',
+                }}
+              >
+                {copied ? 'Đã sao chép link Source! ✓' : 'Sao chép link Source'}
+              </button>
             </p>
           </div>
         </div>
@@ -262,7 +295,7 @@ export default function Home() {
         </p>
         <ol style={{ textAlign: 'left', maxWidth: '460px', margin: '0 auto', color: '#374151', lineHeight: 1.8, paddingLeft: '1.25rem', fontSize: '0.9rem' }}>
           <li>Cài đặt <a href="https://altstore.io" target="_blank" rel="noopener noreferrer" style={{ color: '#4A90D9', fontWeight: 600, textDecoration: 'none' }}>AltStore</a> hoặc <a href="https://sidestore.io" target="_blank" rel="noopener noreferrer" style={{ color: '#A855F7', fontWeight: 600, textDecoration: 'none' }}>SideStore</a> trên điện thoại.</li>
-          <li>Nhấn vào một trong hai nút <strong>Add to AltStore</strong> hoặc <strong>Add to SideStore</strong> ở trên để thêm kho ứng dụng.</li>
+          <li>Nhấn vào nút <strong>Add to AltStore/SideStore</strong> ở trên, hoặc <button onClick={handleCopy} style={{ background: 'none', border: 'none', color: copied ? '#10b981' : '#4A90D9', fontWeight: 600, textDecoration: 'underline', cursor: 'pointer', padding: 0, fontFamily: 'inherit', fontSize: 'inherit' }}>{copied ? 'Sao chép thành công! ✓' : 'sao chép link Source này'}</button> để thêm thủ công vào app.</li>
           <li>Trong ứng dụng của bạn, chọn tab <strong>Browse</strong> hoặc <strong>Sources</strong>, bạn sẽ thấy <strong>Rusty Voz</strong>.</li>
           <li>Nhấp <strong>Install</strong>, đăng nhập Apple ID của bạn để tiến hành cài đặt ứng dụng.</li>
         </ol>
