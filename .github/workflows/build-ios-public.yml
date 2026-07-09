@@ -1,0 +1,163 @@
+name: Build iOS & Update AltStore Source
+
+on:
+  repository_dispatch:
+    types: [trigger-build]
+  workflow_dispatch:
+
+env:
+  FLUTTER_VERSION: '3.38.3'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and Release iOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Public Repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.RELEASE_PAT || github.token }}
+
+      - name: Checkout Private App Repo
+        uses: actions/checkout@v4
+        with:
+          repository: iampqh/flutter_rusty_voz
+          token: ${{ secrets.RELEASE_PAT }}
+          submodules: recursive
+          path: app-source
+          fetch-depth: 1
+
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=$(grep "version:" app-source/pubspec.yaml | head -1 | awk '{print $2}' | cut -d'+' -f1)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "build_number=$GITHUB_RUN_NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: 'stable'
+
+      - name: Load Firebase configuration
+        env:
+          FIREBASE_DART: ${{ secrets.FIREBASE_OPTIONS_DART }}
+          FIREBASE_IOS: ${{ secrets.IOS_FIREBASE_SECRET }}
+        run: |
+          [ -n "$FIREBASE_DART" ] && echo "$FIREBASE_DART" | base64 --decode > app-source/lib/firebase_options.dart
+          [ -n "$FIREBASE_IOS" ] && echo "$FIREBASE_IOS" | base64 --decode > app-source/ios/Runner/GoogleService-Info.plist
+
+      - name: Create cargokit_options.yaml
+        run: |
+          cat > app-source/cargokit_options.yaml <<'EOF'
+          use_precompiled_binaries: true
+          verbose_logging: true
+          EOF
+
+      - name: Get Flutter packages
+        working-directory: app-source
+        run: |
+          flutter pub get
+
+      - name: Run build_runner
+        working-directory: app-source
+        run: dart run build_runner build --enable-experiment=dot-shorthands --delete-conflicting-outputs
+
+      - name: Build iOS (No Codesign)
+        working-directory: app-source
+        env:
+          GITHUB_TOKEN: ${{ secrets.RUST_GITHUB_TOKEN }}
+        run: |
+          flutter build ios --release --no-codesign --build-number=${{ github.run_number }} \
+            --extra-front-end-options=--enable-experiment=dot-shorthands
+
+      - name: Package IPA
+        id: package
+        working-directory: app-source
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r rusty-voz-${{ steps.version.outputs.version }}.ipa Payload
+          IPA_SIZE=$(stat -f%z rusty-voz-${{ steps.version.outputs.version }}.ipa)
+          echo "ipa_size=$IPA_SIZE" >> "$GITHUB_OUTPUT"
+          
+          # Move to workspace root for release step
+          cp rusty-voz-${{ steps.version.outputs.version }}.ipa ../
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.RELEASE_PAT || github.token }}
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
+          draft: false
+          prerelease: false
+          files: rusty-voz-${{ steps.version.outputs.version }}.ipa
+          generate_release_notes: true
+
+      - name: Update apps.json
+        run: |
+          python3 -c "
+          import json, sys
+          from datetime import datetime
+
+          version = '${{ steps.version.outputs.version }}'
+          build_number = '${{ steps.version.outputs.build_number }}'
+          ipa_name = 'rusty-voz-{}.ipa'.format(version)
+          ipa_size = int('${{ steps.package.outputs.ipa_size }}')
+
+          with open('apps.json', 'r', encoding='utf-8') as f:
+              data = json.load(f)
+
+          app = data['apps'][0]
+          download_url = f'https://github.com/iampqh/rusty-voz/releases/download/v{version}/{ipa_name}'
+          current_date = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+          desc = f'Cập nhật phiên bản {version} (Build {build_number}).'
+
+          # Update top level of the app
+          app['version'] = version
+          app['versionDate'] = current_date
+          app['versionDescription'] = desc
+          app['downloadURL'] = download_url
+          app['size'] = ipa_size
+
+          # Update versions array
+          versions = app.get('versions', [])
+          existing_ver = next((v for v in versions if v['version'] == version), None)
+
+          if existing_ver:
+              existing_ver['date'] = current_date
+              existing_ver['size'] = ipa_size
+              existing_ver['downloadURL'] = download_url
+              existing_ver['localizedDescription'] = desc
+          else:
+              new_version_obj = {
+                  'version': version,
+                  'date': current_date,
+                  'size': ipa_size,
+                  'downloadURL': download_url,
+                  'localizedDescription': desc
+              }
+              versions.insert(0, new_version_obj)
+
+          app['versions'] = versions
+
+          with open('apps.json', 'w', encoding='utf-8') as f:
+              json.dump(data, f, indent=2, ensure_ascii=False)
+          "
+
+      - name: Clean up checkout
+        run: |
+          rm -rf app-source
+
+      - name: Commit and Push apps.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps.json
+          git commit -m "chore(release): update apps.json for v${{ steps.version.outputs.version }} [skip ci]" || echo "No changes to commit"
+          git push
