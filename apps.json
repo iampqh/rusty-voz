@@ -12,17 +12,17 @@
       "iconURL": "https://raw.githubusercontent.com/iampqh/rusty-voz/main/screenshot/logo.png",
       "tintColor": "02569B",
       "version": "1.15.2",
-      "versionDate": "2026-07-09T08:00:00Z",
-      "versionDescription": "Bản phát hành đầu tiên hỗ trợ cài đặt qua AltStore và SideStore.",
+      "versionDate": "2026-07-09T03:45:37Z",
+      "versionDescription": "Cập nhật phiên bản 1.15.2 (Build 2).",
       "downloadURL": "https://github.com/iampqh/rusty-voz/releases/download/v1.15.2/rusty-voz-1.15.2.ipa",
-      "size": 0,
+      "size": 18579574,
       "versions": [
         {
           "version": "1.15.2",
-          "date": "2026-07-09T08:00:00Z",
-          "size": 0,
+          "date": "2026-07-09T03:45:37Z",
+          "size": 18579574,
           "downloadURL": "https://github.com/iampqh/rusty-voz/releases/download/v1.15.2/rusty-voz-1.15.2.ipa",
-          "localizedDescription": "Bản phát hành đầu tiên hỗ trợ cài đặt qua AltStore và SideStore."
+          "localizedDescription": "Cập nhật phiên bản 1.15.2 (Build 2)."
         }
       ]
     }
