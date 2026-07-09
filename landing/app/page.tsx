@@ -47,9 +47,9 @@ export default function Home() {
         <h1 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1rem' }}>Rusty Voz</h1>
         <p style={{ fontSize: '1.25rem', color: '#6b7280', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
           Ứng dụng di động không chính thức cho Voz.vn<br />
-          Trải nghiệm native mượt mà trên Android
+          Trải nghiệm native mượt mà trên Android &amp; iOS
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
           <a
             href="https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz"
             style={{ display: 'inline-block' }}
@@ -60,6 +60,64 @@ export default function Home() {
               alt="Get it on Google Play"
               style={{ height: '54px', width: 'auto' }}
             />
+          </a>
+          
+          {/* AltStore Hero Badge */}
+          <a
+            href="altstore://source?url=https://raw.githubusercontent.com/iampqh/rusty-voz/main/apps.json"
+            aria-label="Add to AltStore"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: '#1a1a2e',
+              color: '#fff',
+              padding: '0 1.25rem',
+              borderRadius: '10px',
+              height: '54px',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#4A90D9"/>
+              <path d="M12 7v10M7 12l5-5 5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span style={{ lineHeight: 1.2, textAlign: 'left' }}>
+              <span style={{ display: 'block', fontSize: '0.65rem', opacity: 0.8, fontWeight: 400 }}>Add to</span>
+              AltStore
+            </span>
+          </a>
+
+          {/* SideStore Hero Badge */}
+          <a
+            href="sidestore://source?url=https://raw.githubusercontent.com/iampqh/rusty-voz/main/apps.json"
+            aria-label="Add to SideStore"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: '#1a1a2e',
+              color: '#fff',
+              padding: '0 1.25rem',
+              borderRadius: '10px',
+              height: '54px',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" fill="#A855F7"/>
+              <path d="M12 7v10M7 12l5-5 5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span style={{ lineHeight: 1.2, textAlign: 'left' }}>
+              <span style={{ display: 'block', fontSize: '0.65rem', opacity: 0.8, fontWeight: 400 }}>Add to</span>
+              SideStore
+            </span>
           </a>
         </div>
       </section>
@@ -106,33 +164,115 @@ export default function Home() {
       <section style={{ padding: '4rem 2rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1rem' }}>Tải về</h2>
         <p style={{ color: '#6b7280', marginBottom: '2rem' }}>
-          Phiên bản mới nhất có sẵn trên GitHub Releases
+          Tải phiên bản mới nhất cho thiết bị của bạn
         </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz"
-            style={{ display: 'inline-block' }}
-            aria-label="Get it on Google Play"
-          >
-            <img
-              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-              alt="Get it on Google Play"
-              style={{ height: '80px', width: 'auto' }}
-            />
-          </a>
-          <span style={{
-            background: '#f3f4f6', color: '#6b7280', padding: '1rem 2rem',
-            borderRadius: '8px', fontWeight: 600
-          }}>
-            iOS - Đang phát triển
-          </span>
+        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          {/* Android */}
+          <div style={{ textAlign: 'center', minWidth: '200px' }}>
+            <p style={{ fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>Android</p>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.iamqh.rusty.voz"
+              style={{ display: 'inline-block' }}
+              aria-label="Get it on Google Play"
+            >
+              <img
+                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                alt="Get it on Google Play"
+                style={{ height: '64px', width: 'auto' }}
+              />
+            </a>
+          </div>
+
+          {/* iOS (AltStore / SideStore) */}
+          <div style={{ textAlign: 'center', minWidth: '220px' }}>
+            <p style={{ fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>iOS (AltStore / SideStore)</p>
+            <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+              <a
+                href="altstore://source?url=https://raw.githubusercontent.com/iampqh/rusty-voz/main/apps.json"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  background: '#1a1a2e',
+                  color: '#fff',
+                  padding: '0 1rem',
+                  borderRadius: '10px',
+                  height: '60px',
+                  fontWeight: 600,
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="#4A90D9"/>
+                  <path d="M12 7v10M7 12l5-5 5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span style={{ lineHeight: 1.2, textAlign: 'left' }}>
+                  <span style={{ display: 'block', fontSize: '0.6rem', opacity: 0.8, fontWeight: 400 }}>Add to</span>
+                  AltStore
+                </span>
+              </a>
+
+              <a
+                href="sidestore://source?url=https://raw.githubusercontent.com/iampqh/rusty-voz/main/apps.json"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  background: '#1a1a2e',
+                  color: '#fff',
+                  padding: '0 1rem',
+                  borderRadius: '10px',
+                  height: '60px',
+                  fontWeight: 600,
+                  fontSize: '0.85rem',
+                  textDecoration: 'none',
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="#A855F7"/>
+                  <path d="M12 7v10M7 12l5-5 5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span style={{ lineHeight: 1.2, textAlign: 'left' }}>
+                  <span style={{ display: 'block', fontSize: '0.6rem', opacity: 0.8, fontWeight: 400 }}>Add to</span>
+                  SideStore
+                </span>
+              </a>
+            </div>
+            <p style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: '#9ca3af' }}>
+              Hoặc{' '}
+              <a
+                href="https://github.com/iampqh/rusty-voz/releases"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#6b7280', textDecoration: 'underline' }}
+              >
+                tải file .ipa trực tiếp
+              </a>
+            </p>
+          </div>
         </div>
+      </section>
+
+      {/* iOS Installation Guide */}
+      <section style={{ padding: '3rem 2rem', background: '#f0f4ff', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.75rem' }}>Hướng dẫn cài đặt trên iOS</h2>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem', maxWidth: '500px', margin: '0 auto 1.5rem', fontSize: '0.95rem' }}>
+          AltStore &amp; SideStore cho phép bạn tự ký và cài đặt ứng dụng mà không cần qua App Store bằng tài khoản Apple ID cá nhân miễn phí.
+        </p>
+        <ol style={{ textAlign: 'left', maxWidth: '460px', margin: '0 auto', color: '#374151', lineHeight: 1.8, paddingLeft: '1.25rem', fontSize: '0.9rem' }}>
+          <li>Cài đặt <a href="https://altstore.io" target="_blank" rel="noopener noreferrer" style={{ color: '#4A90D9', fontWeight: 600, textDecoration: 'none' }}>AltStore</a> hoặc <a href="https://sidestore.io" target="_blank" rel="noopener noreferrer" style={{ color: '#A855F7', fontWeight: 600, textDecoration: 'none' }}>SideStore</a> trên điện thoại.</li>
+          <li>Nhấn vào một trong hai nút <strong>Add to AltStore</strong> hoặc <strong>Add to SideStore</strong> ở trên để thêm kho ứng dụng.</li>
+          <li>Trong ứng dụng của bạn, chọn tab <strong>Browse</strong> hoặc <strong>Sources</strong>, bạn sẽ thấy <strong>Rusty Voz</strong>.</li>
+          <li>Nhấp <strong>Install</strong>, đăng nhập Apple ID của bạn để tiến hành cài đặt ứng dụng.</li>
+        </ol>
       </section>
 
       {/* System Requirements */}
       <section style={{ padding: '3rem 2rem', background: '#f9fafb', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Yêu cầu hệ thống</h2>
-        <p style={{ color: '#6b7280' }}>Android 5.0 (Lollipop) hoặc cao hơn</p>
+        <p style={{ color: '#6b7280', margin: '0.25rem 0' }}>Android 5.0 (Lollipop) hoặc cao hơn</p>
+        <p style={{ color: '#6b7280', margin: '0.25rem 0' }}>iOS 12.0 hoặc cao hơn (thông qua AltStore / SideStore)</p>
       </section>
     </main>
   )

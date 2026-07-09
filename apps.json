@@ -1,0 +1,30 @@
+{
+  "name": "Rusty Voz",
+  "identifier": "com.iamqh.rusty-voz.source",
+  "sourceURL": "https://raw.githubusercontent.com/iampqh/rusty-voz/main/apps.json",
+  "apps": [
+    {
+      "name": "Rusty Voz",
+      "bundleIdentifier": "com.iamqh.rusty.voz",
+      "developerName": "iamqh",
+      "subtitle": "Ứng dụng di động không chính thức cho Voz.vn",
+      "localizedDescription": "Rusty Voz là một ứng dụng di động không chính thức được phát triển để mang lại trải nghiệm tốt nhất khi truy cập diễn đàn Voz.vn. Ứng dụng kết hợp sức mạnh của Flutter cho giao diện người dùng mượt mà và Rust cho hiệu suất cao khi xử lý mạng và phân tích dữ liệu, mang lại trải nghiệm native như thật.",
+      "iconURL": "https://raw.githubusercontent.com/iampqh/rusty-voz/main/screenshot/logo.png",
+      "tintColor": "02569B",
+      "version": "1.15.2",
+      "versionDate": "2026-07-09T08:00:00Z",
+      "versionDescription": "Bản phát hành đầu tiên hỗ trợ cài đặt qua AltStore và SideStore.",
+      "downloadURL": "https://github.com/iampqh/rusty-voz/releases/download/v1.15.2/rusty-voz-1.15.2.ipa",
+      "size": 0,
+      "versions": [
+        {
+          "version": "1.15.2",
+          "date": "2026-07-09T08:00:00Z",
+          "size": 0,
+          "downloadURL": "https://github.com/iampqh/rusty-voz/releases/download/v1.15.2/rusty-voz-1.15.2.ipa",
+          "localizedDescription": "Bản phát hành đầu tiên hỗ trợ cài đặt qua AltStore và SideStore."
+        }
+      ]
+    }
+  ]
+}

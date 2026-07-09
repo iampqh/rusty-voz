@@ -1,0 +1,117 @@
+name: Update AltStore/SideStore Source & Release
+
+on:
+  repository_dispatch:
+    types: [ios-release]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release & Update JSON
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.RELEASE_PAT || github.token }}
+
+      - name: Download IPA from Private Repo
+        run: |
+          echo "Fetching artifact details..."
+          curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/iampqh/flutter_rusty_voz/actions/runs/${{ github.event.client_payload.run_id }}/artifacts \
+            -o artifacts.json
+
+          ARTIFACT_ID=$(jq -r '.artifacts[] | select(.name=="rusty-voz-unsigned-ipa") | .id' artifacts.json)
+          
+          if [ -z "$ARTIFACT_ID" ] || [ "$ARTIFACT_ID" = "null" ]; then
+            echo "❌ Artifact 'rusty-voz-unsigned-ipa' not found!"
+            exit 1
+          fi
+          
+          echo "Downloading artifact zip..."
+          curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/iampqh/flutter_rusty_voz/actions/artifacts/$ARTIFACT_ID/zip \
+            -o ipa.zip
+
+          echo "Unzipping artifact..."
+          unzip ipa.zip
+          ls -la
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.RELEASE_PAT || github.token }}
+          tag_name: v${{ github.event.client_payload.version }}
+          name: Release v${{ github.event.client_payload.version }}
+          draft: false
+          prerelease: false
+          files: ${{ github.event.client_payload.ipa_name }}
+          generate_release_notes: true
+
+      - name: Update apps.json
+        run: |
+          python3 -c "
+          import json, sys
+          from datetime import datetime
+
+          version = '${{ github.event.client_payload.version }}'
+          build_number = '${{ github.event.client_payload.build_number }}'
+          ipa_name = '${{ github.event.client_payload.ipa_name }}'
+          ipa_size = int('${{ github.event.client_payload.ipa_size }}')
+
+          with open('apps.json', 'r', encoding='utf-8') as f:
+              data = json.load(f)
+
+          app = data['apps'][0]
+          download_url = f'https://github.com/iampqh/rusty-voz/releases/download/v{version}/{ipa_name}'
+          current_date = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+          desc = f'Cập nhật phiên bản {version} (Build {build_number}).'
+
+          # Update top level of the app
+          app['version'] = version
+          app['versionDate'] = current_date
+          app['versionDescription'] = desc
+          app['downloadURL'] = download_url
+          app['size'] = ipa_size
+
+          # Update versions array
+          versions = app.get('versions', [])
+          existing_ver = next((v for v in versions if v['version'] == version), None)
+
+          if existing_ver:
+              existing_ver['date'] = current_date
+              existing_ver['size'] = ipa_size
+              existing_ver['downloadURL'] = download_url
+              existing_ver['localizedDescription'] = desc
+          else:
+              new_version_obj = {
+                  'version': version,
+                  'date': current_date,
+                  'size': ipa_size,
+                  'downloadURL': download_url,
+                  'localizedDescription': desc
+              }
+              versions.insert(0, new_version_obj)
+
+          app['versions'] = versions
+
+          with open('apps.json', 'w', encoding='utf-8') as f:
+              json.dump(data, f, indent=2, ensure_ascii=False)
+          "
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps.json
+          git commit -m "chore(release): update apps.json for v${{ github.event.client_payload.version }} [skip ci]" || echo "No changes to commit"
+          git push
