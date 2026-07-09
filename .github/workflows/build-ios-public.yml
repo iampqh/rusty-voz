@@ -43,6 +43,11 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: 'stable'
 
+      - name: Install FlutterFire CLI
+        run: |
+          dart pub global activate flutterfire_cli
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+
       - name: Load Firebase configuration
         env:
           FIREBASE_DART: ${{ secrets.FIREBASE_OPTIONS_DART }}
