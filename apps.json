@@ -12,17 +12,17 @@
       "iconURL": "https://raw.githubusercontent.com/iampqh/rusty-voz/main/screenshot/logo.png",
       "tintColor": "02569B",
       "version": "1.15.2",
-      "versionDate": "2026-07-09T03:45:37Z",
-      "versionDescription": "Cập nhật phiên bản 1.15.2 (Build 2).",
+      "versionDate": "2026-07-09T04:06:18Z",
+      "versionDescription": "Cập nhật phiên bản 1.15.2 (Build 3).",
       "downloadURL": "https://github.com/iampqh/rusty-voz/releases/download/v1.15.2/rusty-voz-1.15.2.ipa",
-      "size": 18579574,
+      "size": 20285125,
       "versions": [
         {
           "version": "1.15.2",
-          "date": "2026-07-09T03:45:37Z",
-          "size": 18579574,
+          "date": "2026-07-09T04:06:18Z",
+          "size": 20285125,
           "downloadURL": "https://github.com/iampqh/rusty-voz/releases/download/v1.15.2/rusty-voz-1.15.2.ipa",
-          "localizedDescription": "Cập nhật phiên bản 1.15.2 (Build 2)."
+          "localizedDescription": "Cập nhật phiên bản 1.15.2 (Build 3)."
         }
       ]
     }
